@@ -1,14 +1,17 @@
-import java.util.ArrayList;
-
 class Solution {
     public int[] solution(int n, int[] numlist) {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int num : numlist) {
-            if (num % n == 0) {
-                arrayList.add(num);
+        int[] arry = new int[numlist.length];
+        int count = 0;
+        for(int i = 0; i<numlist.length; i++){
+            if( numlist[i]%n == 0){
+                arry[count] = numlist[i];
+                count++;
             }
         }
-        int[] answer = arrayList.stream().mapToInt(Integer::intValue).toArray();
+        int[] answer=new int[count];
+        for(int i=0; i<count; i++){
+            answer[i]=arry[i];
+        }
         return answer;
     }
 }
